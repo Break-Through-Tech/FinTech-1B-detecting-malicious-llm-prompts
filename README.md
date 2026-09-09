@@ -10,7 +10,7 @@
 | Name             | GitHub Handle | Contribution                                                             |
 |------------------|---------------|--------------------------------------------------------------------------|
 | Han Wang    | @doublehan2023 | Data Exploration            |
-| Jordan Ramirez   | @jramirez     | Data collection, exploratory data analysis (EDA), dataset documentation  |
+| Jacqueline Henriksen   | @jjjhenriksen     | Data collection, exploratory data analysis (EDA), dataset documentation  |
 | Amina Hassan     | @aminahassan  | Data preprocessing, feature engineering, data validation                 |
 | Moukthika Nellutla     | @Mnellutla1120     | Model selection, hyperparameter tuning, model training and optimization  |
 | Chris Park       | @chrispark    | Model evaluation, performance analysis, results interpretation           |
