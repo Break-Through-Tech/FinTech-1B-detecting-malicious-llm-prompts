@@ -10,7 +10,6 @@
 | Name             | GitHub Handle | Contribution                                                             |
 |------------------|---------------|--------------------------------------------------------------------------|
 | AhmedLawal       | @AhmedLawal08    | Data preprocessing, Model evaluation, performance analysis, results interpretation           |
-| Amina Hassan     | @aminahassan  | Data preprocessing, feature engineering, data validation                 |
 | Avi Paudel      | @Avi161    | EDA, Model selection, Model training, Model evaluation |
 | Han Wang    | @doublehan2023 | Data Exploration            |
 | Jacqueline Henriksen   | @jjjhenriksen     | Data collection, exploratory data analysis (EDA), dataset documentation  |
