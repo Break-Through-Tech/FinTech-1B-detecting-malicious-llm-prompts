@@ -15,6 +15,7 @@
 | Han Wang    | @doublehan2023 | Data Exploration            |
 | Jacqueline Henriksen   | @jjjhenriksen     | Data collection, exploratory data analysis (EDA), dataset documentation  |
 | Zakariye Mohamed     | @zakiscoding     | Model selection, hyperparameter tuning, model training and optimization  |
+| Zeynep Bezeklioglu | @zeynepbezeklioglu  | Data preprocessing, model training and evaluation, data validation |          
 
 ---
 
