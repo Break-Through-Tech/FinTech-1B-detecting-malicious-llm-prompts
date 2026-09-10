@@ -14,6 +14,7 @@
 | Amina Hassan     | @aminahassan  | Data preprocessing, feature engineering, data validation                 |
 | Zakariye Mohamed     | @zakiscoding     | Model selection, hyperparameter tuning, model training and optimization  |
 | AhmedLawal       | @AhmedLawal08    | Data preprocessing, Model evaluation, performance analysis, results interpretation           |
+| Avi Paudel      | @Avi161    | EDA, Model selection, Model training, Model evaluation |
 
 ---
 
