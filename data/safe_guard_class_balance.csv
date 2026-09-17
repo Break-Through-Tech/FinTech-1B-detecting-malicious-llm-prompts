@@ -1,0 +1,5 @@
+split,label,count,proportion
+train,0,5740,0.6969
+train,1,2496,0.3031
+test,0,1410,0.6845
+test,1,650,0.3155
