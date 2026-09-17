@@ -45,10 +45,10 @@ Use these milestones to guide your work. Your team will create a GitHub Projects
 ---
 
 ## 📊 Dataset
-**Name and Source:** PromptGame Dataset: Prompt Injection Attack Benchmark and Defense Evaluation Data   
-**Format:** CSV, TSV, and JSON.  
-**Size:** Under 1GB.  
-**Location:** https://ieee-dataport.org/documents/promptgame-dataset-prompt-injection-attack-benchmark-and-defense-evaluation-data  
+**Name and Source:** Safe-Guard Prompt Injection, Hugging Face Dataset   
+**Format:** CSV  
+**Size:** 2.5 MB 
+**Location:** https://huggingface.co/datasets/xTRam1/safe-guard-prompt-injection
 
 ### Key Details
 - [Brief description of what's in the data]
