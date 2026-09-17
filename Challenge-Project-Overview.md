@@ -45,15 +45,17 @@ Use these milestones to guide your work. Your team will create a GitHub Projects
 ---
 
 ## 📊 Dataset
-**Name and Source:** Safe-Guard Prompt Injection, Hugging Face Dataset   
-**Format:** CSV  
-**Size:** 2.5 MB 
+**Name and Source:** [Safe-Guard Prompt Injection](https://huggingface.co/datasets/xTRam1/safe-guard-prompt-injection), Hugging Face Dataset
+**Format:** Parquet (available through the Hugging Face `datasets` library or pandas/pyarrow)
+**Size:** 2.5 MB download; 10,296 rows total
 **Location:** https://huggingface.co/datasets/xTRam1/safe-guard-prompt-injection
 
 ### Key Details
-- [Brief description of what's in the data]
-- [Any known limitations or preprocessing needed]
-- [Link to data dictionary or documentation, if available]
+- Binary text-classification data for distinguishing benign prompts from prompt-injection attacks. Each record contains `text` (the prompt) and `label` (`0` for safe/benign and `1` for injection).
+- The hosted dataset includes a `train` split with 8,236 rows and a `test` split with 2,060 rows. Use the provided test split for final evaluation and create validation data from the training split only.
+- The injection examples were generated synthetically with GPT-3.5-turbo from categories including context manipulation, social engineering, instruction override, and fake completion, using seed prompts curated from open-source datasets. The dataset card and the accompanying [paper](https://arxiv.org/abs/2402.13064) provide additional background.
+- Preprocessing should include checking for missing or duplicate prompts, inspecting class balance, and using a stratified validation split. The dataset has only binary labels, so attack-category classification would require additional annotation.
+- Because the data combines synthetic attacks with prompts curated from general-purpose open-source datasets, results may not generalize to real-world or finance-specific traffic. Treat the reported metrics as benchmark results, not evidence that a production filter is safe without additional evaluation.
 
 ---
 
@@ -62,10 +64,10 @@ Use these milestones to guide your work. Your team will create a GitHub Projects
 **ML Problem Type:** Classification, NLP, Deep Learning / Neural Networks, LLMs / Generative AI, Transfer Learning / Pre-trained Models  
 
 **Recommended Libraries:**
-- [e.g., pandas, scikit-learn, TensorFlow, Hugging Face]
+- `datasets` or `pandas`/`pyarrow` for loading, `scikit-learn` for preprocessing and baseline models, and TensorFlow/Keras for the neural-network comparison.
 
 **Evaluation Metrics:**
-- [e.g., Accuracy, Precision/Recall, RMSE, BLEU score]
+- Precision, recall, F1 score, PR-AUC, confusion matrix, and false-negative rate. Prioritize recall for label `1` (injection) because missed attacks are more costly than false alarms.
   
 ---
 
