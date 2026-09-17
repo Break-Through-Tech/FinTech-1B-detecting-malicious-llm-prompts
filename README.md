@@ -1,89 +1,82 @@
-# AI Studio Challenge Project Title
+# Detecting Malicious LLM Prompts
 
-> 💡 **Note for the team:** This is just a template. Update the above title with your AI Studio Challenge Project name. Remove all guidance notes and example text in this template and populate this README with your own content. You can work on this README throughout AI Studio, and get feedback from your AI Studio Coach and Challenge Advisor before finalizing it.  
+> This Break Through Tech AI Studio project explores a recall-first classifier for detecting prompt-injection text. It is a benchmark and learning artifact, not a production security certification or a financial decision system.
 
 ---
 
 ### 👥 **Team Members**
 
-**Example:**
-
-| Name             | GitHub Handle | Contribution                                                             |
-|------------------|---------------|--------------------------------------------------------------------------|
-| Taylor Nguyen    | @taylornguyen | Data exploration, visualization, overall project coordination            |
-| Jordan Ramirez   | @jramirez     | Data collection, exploratory data analysis (EDA), dataset documentation  |
-| Amina Hassan     | @aminahassan  | Data preprocessing, feature engineering, data validation                 |
-| Priya Mehta      | @pmehta       | Model selection, hyperparameter tuning, model training and optimization  |
-| Chris Park       | @chrispark    | Model evaluation, performance analysis, results interpretation           |
+| Name | GitHub Handle | Contribution |
+|------|---------------|--------------|
+| Ahmed Lawal | [@AhmedLawal08](https://github.com/AhmedLawal08) | Data preprocessing, model evaluation, performance analysis, and results interpretation |
+| Avi Paudel | [@Avi161](https://github.com/Avi161) | EDA, model selection, model training, and model evaluation |
+| Han Wang | [@doublehan2023](https://github.com/doublehan2023) | Data exploration |
+| Jacqueline Henriksen | [@jjjhenriksen](https://github.com/jjjhenriksen) | Data collection, exploratory analysis, and dataset documentation |
+| Moukthika Nellutla | [@Mnellutla1120](https://github.com/Mnellutla1120) | Model selection, hyperparameter tuning, model training, and optimization |
+| Zeynep Bezeklioglu | [@zeynepbezeklioglu](https://github.com/zeynepbezeklioglu) | Data preprocessing, model training and evaluation, and data validation |
+| Zakariye Mohamed | [@zakiscoding](https://github.com/zakiscoding) | Model and data processing |
 
 ---
 
 ## 🎯 **Project Highlights**
 
-**Example:**
-
-- Developed a machine learning model using `[model type/technique]` to address `[challenge project task]`.
-- Achieved `[key metric or result]`, demonstrating `[value or impact]` for `[host company]`.
-- Generated actionable insights to inform business decisions at `[host company or stakeholders]`.
-- Implemented `[specific methodology]` to address industry constraints or expectations.
+- Explores a binary classifier that separates safe/benign prompt-like text from prompt-injection text at an LLM application boundary.
+- Uses a recall-first evaluation policy that reports injection recall and false negatives before precision, F1, PR-AUC, and the confusion matrix.
+- Establishes a reproducible dataset and evaluation contract: validation is derived from the training split, while the hosted test split remains held out for final evaluation.
+- Documents responsible-use boundaries for a classifier that cannot replace authorization, instruction isolation, least-privilege tools, action validation, logging, or human review.
 
 ---
 
 ## 👩🏽‍💻 **Setup and Installation**
 
-**Provide step-by-step instructions so someone else can run your code and reproduce your results. Depending on your setup, include:**
+* How to clone the repository:
 
-* How to clone the repository
-* How to install dependencies
-* How to set up the environment
-* How to access the dataset(s)
-* How to run the notebook or scripts
+  ```bash
+  git clone https://github.com/Break-Through-Tech/FinTech-1B-detecting-malicious-llm-prompts.git
+  cd FinTech-1B-detecting-malicious-llm-prompts
+  ```
+* How to install dependencies and set up the environment:
+
+  ```bash
+  python -m venv .venv
+  source .venv/bin/activate
+  python -m pip install -r requirements.txt
+  ```
+* How to access the dataset(s): retrieve the Safe-Guard Prompt Injection dataset from Hugging Face. Do not commit downloaded raw files. Before modeling, verify the expected schema, nulls, duplicates, labels, and split sizes.
+* How to run the notebook or scripts: run the experiment you are reproducing. No model results or generated evaluation artifacts are committed yet.
 
 ---
 
 ## 🏗️ **Project Overview**
 
-**Describe:**
-
-- How this project is connected to the Break Through Tech AI Program
-- Your AI Studio host company and the project objective and scope
-- The real-world significance of the problem and the potential impact of your work
+- How this project is connected to the Break Through Tech AI Program: this project is part of the Break Through Tech AI Studio program.
+- Your AI Studio host company and the project objective and scope: the project explores prompt-injection detection for an LLM application boundary in a finance-adjacent setting.
+- The real-world significance of the problem and the potential impact of your work: protected assets include confidential data, credentials and system instructions, workflow integrity, and model/tool availability and cost; a classifier alone cannot authorize, block, or reverse a high-impact financial action.
 
 ---
 
 ## 📊 **Data Exploration**
 
-**You might consider describing the following (as applicable):**
-
-* The dataset(s) used: origin, format, size, type of data
-* Data exploration and preprocessing approaches
-* Insights from your Exploratory Data Analysis (EDA)
-* Challenges and assumptions when working with the dataset(s)
-
-**Potential visualizations to include:**
-
-* Plots, charts, heatmaps, feature visualizations, sample dataset images
+* The dataset(s) used: the project uses the [Safe-Guard Prompt Injection dataset](https://huggingface.co/datasets/xTRam1/safe-guard-prompt-injection), hosted as Parquet. It contains `text` and `label` fields; `0` means safe/benign and `1` means prompt injection. The hosted `train` split has 8,236 rows and `test` has 2,060 rows.
+* Data exploration and preprocessing approaches: check schema, missing values, duplicates, label balance, and split integrity before feature fitting. Validation must be derived from `train`, and `test` stays held out for final evaluation.
+* Insights from your Exploratory Data Analysis (EDA): the dataset combines synthetic attacks with prompts curated from general-purpose datasets, and its binary labels do not identify attack techniques.
+* Challenges and assumptions when working with the dataset(s): possible distribution shift affects finance-specific traffic, adaptive attacks, indirect injection, multilingual or obfuscated prompts, multi-turn workflows, and tool abuse.
 
 ---
 
 ## 🧠 **Model Development**
 
-**You might consider describing the following (as applicable):**
-
-* Model(s) used (e.g., CNN with transfer learning, regression models)
-* Feature selection and Hyperparameter tuning strategies
-* Training setup (e.g., % of data for training/validation, evaluation metric, baseline performance)
-
+* Model(s) used: the planned baseline uses TF-IDF features with linear classifiers; neural-model comparisons may be added after the baseline.
+* Feature selection and Hyperparameter tuning strategies: feature fitting, preprocessing, thresholds, and hyperparameter selection must use training or validation data only.
+* Training setup: runs should use deterministic stratified validation and retain the source revision, configuration, training-data provenance, and generated report needed for comparison.
 
 ---
 
 ## 📈 **Results & Key Findings**
 
-**You might consider describing the following (as applicable):**
-
-* Performance metrics (e.g., Accuracy, F1 score, RMSE)
-* How your model performed
-* Insights from evaluating model fairness
+* Performance metrics: report injection recall and false negatives first, alongside precision, F1, PR-AUC, and a confusion matrix.
+* How your model performed: no model results or generated evaluation artifacts are committed yet; future claims must link the exact run and source revision.
+* Insights from evaluating model fairness: fairness and robustness findings should be reported with the evaluation data and limitations that support them.
 
 **Potential visualizations to include:**
 
@@ -93,29 +86,25 @@
 
 ## 🚀 **Next Steps**
 
-**You might consider addressing the following (as applicable):**
-
-* What are some of the limitations of your model?
-* What would you do differently with more time/resources?
-* What additional datasets or techniques would you explore?
+* What are some of the limitations of your model? The dataset may not represent finance-specific traffic, adaptive attacks, indirect injection, multilingual or obfuscated prompts, multi-turn workflows, or tool abuse.
+* What would you do differently with more time/resources? Compare neural approaches only when their training provenance and resource requirements are documented, and add layered controls such as instruction isolation, least-privilege tools, action validation, logging, and human review.
+* What additional datasets or techniques would you explore? Evaluate generalization across the scenarios above and confirm dataset and seed-source terms with the project advisor before redistributing raw or derived data.
 
 ---
 
 ## 📝 **License**
 
-Specify how your project can be used by others. Choose an appropriate license and link it here (e.g., MIT, Apache 2.0). Make sure your Challenge Advisor approves of the selected license type. 
-
-**Example:**
-This project is licensed under the MIT License.
+The repository does not currently declare a project license. Confirm the dataset and cited seed-source terms with the project advisor before redistributing raw or derived data.
 
 ---
 
 ## 📄 **References** (Optional but encouraged)
 
-Cite relevant papers, articles, or resources that supported your project.
+- [Safe-Guard Prompt Injection dataset](https://huggingface.co/datasets/xTRam1/safe-guard-prompt-injection)
+- [Synthetic Data (Almost) from Scratch: Generalized Instruction Tuning for Language Models](https://arxiv.org/abs/2402.13064)
 
 ---
 
 ## 🙏 **Acknowledgements** (Optional but encouraged)
 
-Thank your Challenge Advisor, host company representatives, TA, and others who supported your project.
+This project is developed through the Break Through Tech AI Studio program with support from the project team, Challenge Advisor, host-company representatives, and teaching staff.
